@@ -1,0 +1,220 @@
+body {
+  font-family: Rubik, Arial, sans-serif;
+}
+h4,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+.content-bottom-drawer {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  padding: 20px;
+  min-height: 45%;
+  animation-name: animateSlideUp;
+  animation-duration: 0.6s;
+  border-top: solid 1px #33333330;
+  &__inner {
+    max-width: 1110px;
+    margin: auto;
+    padding: 77px 61px 77px 17px;
+    p {
+      color: #333;
+      font-size: 12px;
+      text-align: left;
+      line-height: 24px;
+      font-weight: 500;
+    }
+    button {
+      background-color: #333;
+      color: rgb(255, 255, 255);
+      height: 50px;
+      font-weight: 600;
+      width: 220px;
+      font-size: 16px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-radius: 4px;
+      border: none;
+      margin: 30px auto;
+      display: block;
+      cursor: pointer;
+      transition: all 0.5s ease;
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+    a {
+      display: inline-block;
+      margin: 0 5px;
+      color: #333;
+    }
+  }
+}
+
+//config styles
+.modal-overlay {
+  position: fixed;
+  z-index: 500;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.4);
+  animation-name: animateSlideUp;
+  animation-duration: 0.9s;
+
+  &__container {
+    max-width: 850px;
+    overflow: auto;
+    margin: 66px auto;
+    background-color: #fff;
+    padding: 26px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 27px 0 #33333326;
+    @media (max-width: 910px) {
+      margin: 0;
+      overflow: auto;
+      height: 100vh;
+    }
+  }
+  &__container-list {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__container-checkbox {
+    display: flex;
+    align-items: center;
+    /* The switch - the box around the slider */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 25px;
+    }
+
+    /* Hide default HTML checkbox */
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    /* The slider */
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: 0.1s;
+      transition: 0.1s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: '';
+      height: 21px;
+      width: 21px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      -webkit-transition: 0.2s;
+      transition: 0.2s;
+    }
+
+    input:checked + .slider {
+      background-color: #2196f3;
+    }
+
+    input:focus + .slider {
+      box-shadow: 0 0 1px #2196f3;
+    }
+
+    input:checked + .slider:before {
+      -webkit-transform: translateX(19px);
+      -ms-transform: translateX(19px);
+      transform: translateX(19px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+  }
+  &__container-action {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+
+    button {
+      color: #fff;
+      background-color: #5d5d5d;
+      cursor: pointer;
+      border: none;
+      padding: 6px 16px;
+      font-size: 0.875rem;
+      min-width: 64px;
+      height: 35px;
+      font-weight: 500;
+      line-height: 1.75;
+      border-radius: 4px;
+      text-transform: uppercase;
+      box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+      &:first-child {
+        background-color: #696969 !important;
+      }
+      &:last-child {
+        margin: 0 0 0 7px;
+      }
+    }
+  }
+  hr {
+    margin: 15px 0 20px 0;
+    border: none;
+    border-top: 1px solid #acacac;
+  }
+  h4 {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.235;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  h6 {
+    font-size: 20px;
+    margin-bottom: 7px;
+    font-weight: 500;
+    color: #333;
+  }
+  p {
+    font-size: 14px;
+    margin-bottom: 25px;
+    line-height: 20px;
+    color: #545454;
+    font-weight: 500;
+  }
+}
+
+//animate
+@keyframes animateSlideUp {
+  0% {
+    opacity: 0;
+    bottom: -45%;
+  }
+  100% {
+    opacity: 1;
+    bottom: 0;
+  }
+}
